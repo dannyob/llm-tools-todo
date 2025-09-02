@@ -5,7 +5,7 @@
 [![Tests](https://github.com/dannyob/llm-tools-todo/actions/workflows/test.yml/badge.svg)](https://github.com/dannyob/llm-tools-todo/actions/workflows/test.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/dannyob/llm-tools-todo/blob/main/LICENSE)
 
-LLM plugin providing session-based todo management tools for AI-assisted task tracking and organization.
+LLM plugin providing session-based todo management tools for Simon Willison's `llm`, a la Claude Code.
 
 ## Installation
 
