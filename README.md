@@ -93,9 +93,13 @@ make quick-test     # Fast test run (exits on first failure)
 After installation, verify the plugin is working:
 
 ```bash
-llm tools  # Should list Todo tools
+llm tools  
+# above should show Todo tools listed
 llm prompt "Please start a new todo session" --tool Todo
-llm -c "What is in my todo list?" --tool Todo
+llm prompt -c "Add a single Todo, saying 'check todo list works'" --tool Todo
+llm prompt -c "What is in my todo list?" --tool Todo
+llm prompt -c "Mark the check todo item as done" --tool Todo
+llm prompt -c "Now end the Todo list" --tool Todo
 ```
 
 ## Credits and Thanks
