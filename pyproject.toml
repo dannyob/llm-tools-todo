@@ -1,0 +1,32 @@
+[project]
+name = "llm-tools-todo"
+version = "0.1"
+description = "LLM tools for todo management"
+readme = "README.md"
+authors = [{name = "Danny O'Brien", email = "danny@spesh.com"}]
+license = "Apache-2.0"
+classifiers = []
+requires-python = ">=3.9"
+dependencies = [
+    "llm>=0.26",
+    "pydantic"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://github.com/dannyob/llm-tools-todo"
+Changelog = "https://github.com/dannyob/llm-tools-todo/releases"
+Issues = "https://github.com/dannyob/llm-tools-todo/issues"
+CI = "https://github.com/dannyob/llm-tools-todo/actions"
+
+[project.entry-points.llm]
+llm_tools_todo = "llm_tools_todo"
+
+[project.optional-dependencies]
+test = ["pytest", "llm-echo>=0.3a1"]
+
+[tool.setuptools]
+py-modules = ["llm_tools_todo"]
