@@ -21,7 +21,7 @@ This is an LLM plugin that provides session-based todo management tools through 
 **Todo** (`plugin.py:246`): Main toolbox class that bundles all todo tools
 - Extends `llm.Toolbox` 
 - Methods become available as tools with naming pattern `Todo_method_name`
-- Contains 6 todo management methods: `todo_begin`, `todo_end`, `todo_list`, `todo_write`, `todo_add`, `todo_complete`
+- Contains 6 todo management methods: `begin`, `end`, `list`, `write`, `add`, `complete`
 
 **TodoStore** (`plugin.py:26`): Handles persistent storage and retrieval
 - Async file-based storage using JSON
@@ -37,7 +37,7 @@ This is an LLM plugin that provides session-based todo management tools through 
 **Session-based Architecture**: Each todo session gets a unique 8-character UUID
 - Sessions are cached in `_session_stores` global dict
 - Session files stored in temp directory as `llm-todos-{session_id}.json`
-- Session lifecycle: `todo_begin()` → use tools → `todo_end()` (cleanup)
+- Session lifecycle: `begin()` → use tools → `end()` (cleanup)
 
 ### Key Implementation Details
 

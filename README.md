@@ -31,12 +31,12 @@ The plugin provides a single `Todo` toolbox with six todo management operations:
 
 ### Available Tools
 
-- `todo_begin` - Start a new todo session
-- `todo_end` - End current session and cleanup
-- `todo_list` - Display all todos in current session
-- `todo_write` - Replace entire todo list
-- `todo_add` - Add new todo items
-- `todo_complete` - Mark todos as completed
+- `begin` - Start a new todo session
+- `end` - End current session and cleanup
+- `list` - Display all todos in current session
+- `write` - Replace entire todo list
+- `add` - Add new todo items
+- `complete` - Mark todos as completed
 
 ### Basic Usage
 
@@ -56,7 +56,7 @@ llm -c prompt -m gpt-4o-mini "Mark the first task as completed" --tool Todo
 Each todo session gets a unique identifier and stores data in temporary files. Sessions are automatically managed:
 
 - Session files stored as `/tmp/llm-todos-{session_id}.json`
-- Data persists until session is ended with `todo_end`
+- Data persists until session is ended with `end`
 - Multiple concurrent sessions supported
 
 ### Todo Item Structure

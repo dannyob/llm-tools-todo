@@ -302,7 +302,7 @@ class Todo(llm.Toolbox):
     When in doubt, use this toolbox. Being proactive with task management demonstrates attentiveness and ensures you complete all requirements successfully.
     """
 
-    def todo_begin(self) -> str:
+    def begin(self) -> str:
         """Start a new todo session and return the session ID.
 
         Use this to begin tracking a complex task with multiple steps. Always call this
@@ -314,18 +314,18 @@ class Todo(llm.Toolbox):
         """
         return todo_begin()
 
-    def todo_end(self, session_id: str) -> str:
+    def end(self, session_id: str) -> str:
         """End a todo session and clean up its data.
 
         Call this when all tasks in a session are complete or when you no longer
         need to track the todos. This removes the session file and frees up resources.
 
         Args:
-            session_id: The session ID returned from todo_begin()
+            session_id: The session ID returned from begin()
         """
         return todo_end(session_id)
 
-    def todo_list(self, session_id: str) -> str:
+    def list(self, session_id: str) -> str:
         """List all current todos for a session with their status and details.
 
         Use this to review your current progress and see which tasks are pending,
@@ -337,7 +337,7 @@ class Todo(llm.Toolbox):
         """
         return todo_list(session_id)
 
-    def todo_write(self, session_id: str, todos_json: str) -> str:
+    def write(self, session_id: str, todos_json: str) -> str:
         """Replace the entire todo list with new todos (JSON format).
 
         Use this for comprehensive task planning - when you receive complex requirements
@@ -357,7 +357,7 @@ class Todo(llm.Toolbox):
         """
         return todo_write(session_id, todos_json)
 
-    def todo_add(self, session_id: str, content: str, priority: str = "medium") -> str:
+    def add(self, session_id: str, content: str, priority: str = "medium") -> str:
         """Add a single new todo item to a session.
 
         Use this when you discover additional tasks during implementation that need
@@ -371,7 +371,7 @@ class Todo(llm.Toolbox):
         """
         return todo_add(session_id, content, priority)
 
-    def todo_complete(self, session_id: str, todo_id: str) -> str:
+    def complete(self, session_id: str, todo_id: str) -> str:
         """Mark a todo as completed by ID in a session.
 
         CRITICAL: Only mark tasks as completed when they are FULLY accomplished.

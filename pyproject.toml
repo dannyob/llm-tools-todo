@@ -1,6 +1,6 @@
 [project]
 name = "llm-tools-todo"
-version = "0.1"
+version = "0.3"
 description = "LLM tools for todo management"
 readme = "README.md"
 authors = [{name = "Danny O'Brien", email = "danny@spesh.com"}]

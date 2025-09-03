@@ -397,66 +397,66 @@ class TestTodoToolbox:
 
     def test_toolbox_todo_begin(self):
         """Test toolbox todo_begin method."""
-        result = self.todo.todo_begin()
+        result = self.todo.begin()
         assert "Started new todo session:" in result
 
     def test_toolbox_todo_end(self):
         """Test toolbox todo_end method."""
         # Start session first
-        begin_result = self.todo.todo_begin()
+        begin_result = self.todo.begin()
         session_id = begin_result.split(": ")[1]
 
         # End session
-        result = self.todo.todo_end(session_id)
+        result = self.todo.end(session_id)
         assert f"Ended todo session: {session_id}" == result
 
     def test_toolbox_todo_list(self):
         """Test toolbox todo_list method."""
         # Start session first
-        begin_result = self.todo.todo_begin()
+        begin_result = self.todo.begin()
         session_id = begin_result.split(": ")[1]
 
-        result = self.todo.todo_list(session_id)
+        result = self.todo.list(session_id)
         assert f"No todos found in session {session_id}" in result
 
     def test_toolbox_todo_add(self):
         """Test toolbox todo_add method."""
-        begin_result = self.todo.todo_begin()
+        begin_result = self.todo.begin()
         session_id = begin_result.split(": ")[1]
 
-        result = self.todo.todo_add(session_id, "Test task from toolbox")
+        result = self.todo.add(session_id, "Test task from toolbox")
         assert "Added todo 'Test task from toolbox'" in result
 
     def test_toolbox_todo_complete(self):
         """Test toolbox todo_complete method."""
-        begin_result = self.todo.todo_begin()
+        begin_result = self.todo.begin()
         session_id = begin_result.split(": ")[1]
 
         # Add a todo first
-        add_result = self.todo.todo_add(session_id, "Complete me")
+        add_result = self.todo.add(session_id, "Complete me")
         todo_id = add_result.split("with ID ")[1].split(" to session")[0]
 
         # Complete it
-        result = self.todo.todo_complete(session_id, todo_id)
+        result = self.todo.complete(session_id, todo_id)
         assert f"Marked todo '{todo_id}' as completed" in result
 
     def test_toolbox_todo_write(self):
         """Test toolbox todo_write method."""
-        begin_result = self.todo.todo_begin()
+        begin_result = self.todo.begin()
         session_id = begin_result.split(": ")[1]
 
         todos_json = '[{"id": "1", "content": "Toolbox test", "status": "pending", "priority": "medium"}]'
-        result = self.todo.todo_write(session_id, todos_json)
+        result = self.todo.write(session_id, todos_json)
         assert "Success! Updated todo list" in result
 
     def test_toolbox_inheritance(self):
         """Test that Todo inherits from llm.Toolbox."""
-        assert hasattr(self.todo, "todo_begin")
-        assert hasattr(self.todo, "todo_end")
-        assert hasattr(self.todo, "todo_list")
-        assert hasattr(self.todo, "todo_write")
-        assert hasattr(self.todo, "todo_add")
-        assert hasattr(self.todo, "todo_complete")
+        assert hasattr(self.todo, "begin")
+        assert hasattr(self.todo, "end")
+        assert hasattr(self.todo, "list")
+        assert hasattr(self.todo, "write")
+        assert hasattr(self.todo, "add")
+        assert hasattr(self.todo, "complete")
 
 
 class TestErrorHandling:
